@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 app.use(express.json());
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.disable('etag');
 app.use((req, res, next) => {
@@ -35,8 +35,16 @@ app.use('/api', async (req, res) => {
   }
 });
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.get('/auth.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'auth.html'));
+});
+
+app.get('/products.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'products.html'));
 });
 
 const PORT = 5000;

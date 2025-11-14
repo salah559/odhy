@@ -8,17 +8,24 @@ Odhiyaty is an Arabic e-commerce platform for selling sheep and sacrificial anim
 .
 ├── backend/
 │   ├── db/
-│   │   └── drizzle.js          # Database configuration (Drizzle ORM with PostgreSQL)
+│   │   ├── drizzle.js          # Database configuration (PostgreSQL)
+│   │   ├── schema.sql          # Database schema definition
+│   │   └── init.js             # Database initialization script
 │   ├── routes/
 │   │   ├── auth.js             # Firebase authentication routes
-│   │   ├── products.js         # Product API routes
-│   │   └── orders.js           # Order management routes
+│   │   ├── products.js         # Product API routes (connected to DB)
+│   │   └── orders.js           # Order management routes (connected to DB)
 │   └── server.js               # Express backend server (port 3000)
+├── public/
+│   ├── index.html              # Main homepage
+│   ├── products.html           # Products listing page
+│   ├── auth.html               # Login/Register page with Firebase
+│   ├── styles.css              # Global stylesheet
+│   ├── main.js                 # Homepage JavaScript
+│   ├── products.js             # Products page JavaScript
+│   └── logo.png                # Website logo
 ├── frontend-server.js          # Frontend server with API proxy (port 5000)
 ├── start.js                    # Startup script for both servers
-├── index.html                  # Main HTML page
-├── styles.css                  # Stylesheet
-├── main.js                     # Frontend JavaScript
 └── package.json                # Project dependencies
 ```
 
@@ -29,8 +36,8 @@ Odhiyaty is an Arabic e-commerce platform for selling sheep and sacrificial anim
 - **Mock Data**: Implemented mock data for products and orders (database-ready structure)
 - **Firebase Auth**: Configured optional Firebase authentication with graceful fallback
 - **Cache Control**: Added proper cache headers to prevent stale content in Replit iframe
-- **Complete Redesign** (Latest): Modern, professional Arabic interface with:
-  - New logo integration from user's design
+- **Complete Redesign**: Modern, professional Arabic interface with:
+  - New logo integration from user's design (80px height)
   - Full sections: Hero, Features, Products, About, How It Works, Testimonials, Contact
   - Responsive mobile menu with proper CSS fixes
   - Smooth scroll animations and transitions
@@ -38,6 +45,20 @@ Odhiyaty is an Arabic e-commerce platform for selling sheep and sacrificial anim
   - Interactive product cards with dynamic loading
   - Contact form with proper field names for backend integration
   - Professional footer with social links
+- **Multi-Page Structure** (Latest):
+  - Separated pages for better navigation
+  - Homepage (index.html) with all sections
+  - Dedicated products page (products.html) with category filters
+  - Complete authentication page (auth.html) with Firebase integration
+- **Database Integration**:
+  - PostgreSQL database connected and initialized
+  - Real database tables: sheep, orders, admins
+  - Sample data inserted for testing
+  - Full CRUD operations in API routes
+- **Firebase Authentication**:
+  - Login and registration forms
+  - Password reset functionality
+  - Token-based authentication with backend verification
 
 ## Architecture
 
@@ -54,20 +75,37 @@ Odhiyaty is an Arabic e-commerce platform for selling sheep and sacrificial anim
 - Currently using mock data (ready for PostgreSQL integration)
 
 ### Database
-- Configured for PostgreSQL with Drizzle ORM
-- Environment variable: `DATABASE_URL`
-- Currently using in-memory mock data
-- Schema ready for: products (sheep), orders, users
+- PostgreSQL with direct pg connection
+- Connection string configured in backend/db/drizzle.js
+- Three main tables:
+  - **sheep**: Products with categories, prices, discounts, weight, age, breed
+  - **orders**: Customer orders with products, status tracking
+  - **admins**: Firebase-authenticated admin users
+- Database initialization: `npm run db:init`
+- Includes sample data for testing
 
 ## Environment Variables
 
 ### Required
-None currently (using mock data)
+- `DATABASE_URL`: PostgreSQL connection string (currently configured in code)
+  - Format: `postgresql://user:password@host:port/database`
 
-### Optional
-- `DATABASE_URL`: PostgreSQL connection string for production database
-- `FIREBASE_SERVICE_ACCOUNT`: JSON string for Firebase Admin SDK (for authentication)
+### Optional  
+- `FIREBASE_SERVICE_ACCOUNT`: JSON string for Firebase Admin SDK (for backend token verification)
 - `BACKEND_PORT`: Backend server port (default: 3000)
+
+### Firebase Configuration (Frontend)
+You need to add your Firebase config in `public/auth.html`:
+```javascript
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+```
 
 ## Running the Application
 

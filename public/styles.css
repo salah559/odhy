@@ -84,7 +84,7 @@ body {
 }
 
 .logo img {
-  height: 60px;
+  height: 80px;
   transition: var(--transition);
 }
 
@@ -729,7 +729,7 @@ body {
 }
 
 .footer-logo img {
-  height: 60px;
+  height: 70px;
 }
 
 .footer-col p {
