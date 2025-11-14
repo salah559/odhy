@@ -78,13 +78,15 @@ function displayProducts(products) {
   `).join('');
 }
 
-function filterProducts(category) {
+function filterProducts(category, event) {
   loadProducts(category);
   
   document.querySelectorAll('.filter-section .btn').forEach(btn => {
     btn.classList.remove('active');
   });
-  event.target.classList.add('active');
+  if (event && event.target) {
+    event.target.classList.add('active');
+  }
 }
 
 function orderProduct(productId) {

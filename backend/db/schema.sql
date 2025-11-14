@@ -56,3 +56,11 @@ INSERT INTO sheep (name, category, price, discount, weight, age, breed, health_s
 ('خروف روماني', 'روماني', 2000.00, 10, '55-60 كجم', 2, 'روماني', 'ممتاز', 'خروف روماني مستورد عالي الجودة', false),
 ('خروف إسباني', 'إسباني', 2500.00, 15, '60-65 كجم', 3, 'إسباني', 'ممتاز', 'خروف إسباني فاخر مستورد', true)
 ON CONFLICT DO NOTHING;
+
+-- جدول إعدادات النظام (System Config)
+CREATE TABLE IF NOT EXISTS system_config (
+  key VARCHAR(255) PRIMARY KEY,
+  value TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

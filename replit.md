@@ -90,22 +90,27 @@ Odhiyaty is an Arabic e-commerce platform for selling sheep and sacrificial anim
 - `DATABASE_URL`: PostgreSQL connection string (currently configured in code)
   - Format: `postgresql://user:password@host:port/database`
 
+### Required for Production
+- `FIREBASE_SERVICE_ACCOUNT`: JSON string for Firebase Admin SDK (**REQUIRED for admin features**)
+- `ADMIN_CREATION_SECRET`: Secret key for creating the first admin user (secure random string)
+
 ### Optional  
-- `FIREBASE_SERVICE_ACCOUNT`: JSON string for Firebase Admin SDK (for backend token verification)
 - `BACKEND_PORT`: Backend server port (default: 3000)
 
-### Firebase Configuration (Frontend)
-You need to add your Firebase config in `public/auth.html`:
-```javascript
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
-};
-```
+### Firebase Configuration
+
+**See FIREBASE_SETUP.md for complete setup instructions.**
+
+Quick Setup:
+1. Replace Firebase config in `public/auth.html` with your project's config from Firebase Console
+2. Add `FIREBASE_SERVICE_ACCOUNT` secret for backend token verification (**REQUIRED for admin features**)
+3. Enable Email/Password authentication in Firebase Console
+
+**Important**: 
+- Firebase is **optional** for public features (browsing products, creating orders)
+- Firebase is **REQUIRED** for admin features (viewing/managing orders, user authentication)
+- Without Firebase setup, protected admin routes will return 503 Service Unavailable
+- Frontend config is public info (safe to expose); service account JSON is SECRET
 
 ## Running the Application
 
