@@ -2,34 +2,310 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>أضحيتي</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أضحيتي - منصتك الموثوقة لشراء الأضاحي</title>
 <link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-<header>
-  <img src="sheep.png" alt="شعار">
-  <nav>
-    <a href="#">الرئيسية</a>
-    <a href="#">المنتجات</a>
-    <a href="#">حقل التطبيق</a>
-    <a href="#" class="gold">تسجيل الدخول</a>
-  </nav>
-</header>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <img src="logo.png" alt="أضحيتي">
+        </div>
+        <nav class="nav">
+          <a href="#home" class="nav-link active">الرئيسية</a>
+          <a href="#products" class="nav-link">المنتجات</a>
+          <a href="#about" class="nav-link">من نحن</a>
+          <a href="#how-it-works" class="nav-link">كيف يعمل</a>
+          <a href="#contact" class="nav-link">تواصل معنا</a>
+          <a href="#login" class="nav-link login-btn">تسجيل الدخول</a>
+        </nav>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-<section class="hero">
-  <h1>اختر أضحيتك المثالية</h1>
-  <p>منصة موثوقة لشراء الأغنام والأضاحي بجودة عالية وأسعار منافسة</p>
-  <button>تعرف علينا</button>
-  <button>تصفح المنتجات</button>
-</section>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">اختر أضحيتك المثالية</h1>
+        <p class="hero-subtitle">منصة موثوقة لشراء الأغنام والأضاحي بجودة عالية وأسعار منافسة</p>
+        <p class="hero-description">نوفر لك أفضل الأغنام من مختلف السلالات المحلية والمستوردة بأعلى معايير الجودة</p>
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-primary">تصفح المنتجات</a>
+          <a href="#about" class="btn btn-secondary">تعرف علينا</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>اكتشف المزيد</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
 
-<section class="features">
-  <div>عالي الجودة ❤️: رضا العملاء</div>
-  <div>أفضل الأسعار 📈: أسعار تنافسية</div>
-  <div>24/7 🛡️: أمان وثقة</div>
-  <div>100% ⭐: جودة مضمونة</div>
-</section>
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">❤️</div>
+          <h3>عالي الجودة</h3>
+          <p>رضا العملاء أولويتنا مع أفضل معايير الجودة</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📈</div>
+          <h3>أفضل الأسعار</h3>
+          <p>أسعار تنافسية تناسب جميع الميزانيات</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3>أمان وثقة</h3>
+          <p>خدمة عملاء متاحة على مدار الساعة</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⭐</div>
+          <h3>جودة مضمونة</h3>
+          <p>100% فحص طبي وشهادات صحية معتمدة</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script src="main.js"></script>
+  <!-- Products Section -->
+  <section class="products" id="products">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">منتجاتنا المميزة</h2>
+        <p class="section-subtitle">اختر من بين مجموعة واسعة من أجود الأغنام والأضاحي</p>
+      </div>
+      <div class="products-grid" id="productsGrid">
+        <!-- Products will be loaded dynamically -->
+        <div class="product-loading">
+          <div class="spinner"></div>
+          <p>جاري تحميل المنتجات...</p>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="#products" class="btn btn-outline">عرض جميع المنتجات</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <h2 class="section-title">من نحن</h2>
+          <p class="about-text">
+            نحن منصة أضحيتي، وجهتك الأولى لشراء الأغنام والأضاحي عبر الإنترنت في الجزائر. نفخر بتقديم أفضل الخدمات لعملائنا مع ضمان الجودة والأسعار المنافسة.
+          </p>
+          <p class="about-text">
+            نعمل مع أفضل المربين المحليين لضمان حصولك على أضحية مثالية تلبي جميع معايير الجودة الإسلامية والصحية.
+          </p>
+          <div class="about-stats">
+            <div class="stat">
+              <h3>5000+</h3>
+              <p>عميل راضٍ</p>
+            </div>
+            <div class="stat">
+              <h3>500+</h3>
+              <p>أضحية متوفرة</p>
+            </div>
+            <div class="stat">
+              <h3>48</h3>
+              <p>ولاية مغطاة</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-image">
+          <div class="image-placeholder">
+            <div class="image-icon">🐑</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">كيف يعمل الموقع</h2>
+        <p class="section-subtitle">خطوات بسيطة للحصول على أضحيتك المثالية</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>تصفح المنتجات</h3>
+          <p>اختر من بين مجموعة واسعة من الأغنام والأضاحي</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>اختر أضحيتك</h3>
+          <p>حدد الأضحية المناسبة لك حسب الوزن والسعر والسلالة</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>أكمل الطلب</h3>
+          <p>أدخل معلوماتك وحدد موعد ومكان التسليم</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>استلم أضحيتك</h3>
+          <p>نوصل لك الأضحية في الوقت والمكان المحددين</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">آراء عملائنا</h2>
+        <p class="section-subtitle">ماذا يقول عملاؤنا عن خدماتنا</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">
+            "خدمة ممتازة وأضحية بجودة عالية. التوصيل كان في الموعد المحدد والسعر مناسب جداً."
+          </p>
+          <div class="testimonial-author">
+            <strong>أحمد بن محمد</strong>
+            <span>الجزائر العاصمة</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">
+            "أفضل منصة لشراء الأضاحي، الأغنام صحية ووزنها مطابق للوصف. أنصح بشدة!"
+          </p>
+          <div class="testimonial-author">
+            <strong>فاطمة الزهراء</strong>
+            <span>وهران</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">
+            "تعامل راقي وخدمة عملاء ممتازة. حصلت على أضحية رائعة بسعر تنافسي."
+          </p>
+          <div class="testimonial-author">
+            <strong>خالد العربي</strong>
+            <span>قسنطينة</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2 class="section-title">تواصل معنا</h2>
+          <p class="contact-text">لديك استفسار؟ نحن هنا للمساعدة على مدار الساعة</p>
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="contact-icon">📱</div>
+              <div>
+                <h4>الهاتف</h4>
+                <p>0555 123 456</p>
+              </div>
+            </div>
+            <div class="contact-method">
+              <div class="contact-icon">📧</div>
+              <div>
+                <h4>البريد الإلكتروني</h4>
+                <p>info@odhiyaty.dz</p>
+              </div>
+            </div>
+            <div class="contact-method">
+              <div class="contact-icon">📍</div>
+              <div>
+                <h4>العنوان</h4>
+                <p>جميع ولايات الجزائر</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <input type="text" name="name" placeholder="الاسم الكامل" required>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" name="phone" placeholder="رقم الهاتف" required>
+            </div>
+            <div class="form-group">
+              <textarea name="message" placeholder="رسالتك" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img src="logo.png" alt="أضحيتي">
+          </div>
+          <p>منصتك الموثوقة لشراء الأغنام والأضاحي بجودة عالية وأسعار منافسة</p>
+        </div>
+        <div class="footer-col">
+          <h3>روابط سريعة</h3>
+          <ul>
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#products">المنتجات</a></li>
+            <li><a href="#about">من نحن</a></li>
+            <li><a href="#contact">تواصل معنا</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>خدماتنا</h3>
+          <ul>
+            <li><a href="#">أغنام محلية</a></li>
+            <li><a href="#">أغنام مستوردة</a></li>
+            <li><a href="#">خدمة التوصيل</a></li>
+            <li><a href="#">استشارات مجانية</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>تابعنا</h3>
+          <div class="social-links">
+            <a href="#" class="social-link">📘</a>
+            <a href="#" class="social-link">📸</a>
+            <a href="#" class="social-link">🐦</a>
+            <a href="#" class="social-link">📹</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 أضحيتي - جميع الحقوق محفوظة</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
