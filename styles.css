@@ -1,0 +1,6 @@
+body { font-family: 'Tajawal', sans-serif; background: #fefefe; }
+header { display: flex; justify-content: space-between; padding: 1rem; background: #000; color: #fff; }
+header nav a { margin: 0 10px; color: #fff; text-decoration: none; }
+header nav a.gold { color: gold; }
+.hero { text-align: center; padding: 4rem; background: url('sheep-bg.jpg') no-repeat center/cover; color: #fff; }
+.features { display: flex; justify-content: space-around; margin-top: 2rem; }
