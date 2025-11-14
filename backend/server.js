@@ -13,4 +13,5 @@ app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);
 
-app.listen(5000, () => console.log("Server running on port 5000"));
+const PORT = process.env.BACKEND_PORT || 3000;
+app.listen(PORT, "localhost", () => console.log(`Backend server running on localhost:${PORT}`));

@@ -1,51 +1,53 @@
 import express from "express";
-import { db } from "../db/drizzle.js";
 
 const router = express.Router();
 
-// إنشاء طلب جديد
+const mockOrders = [];
+
 router.post("/", async (req, res) => {
   const { user_name, phone, state, city, products, total, notes } = req.body;
 
   try {
-    const result = await db.insert("orders").values({
+    const order = {
+      id: mockOrders.length + 1,
       user_name,
       phone,
       state,
       city,
-      products: JSON.stringify(products),
+      products,
       total,
-      notes
-    }).returning("*");
-
-    res.json({ message: "تم إنشاء الطلب بنجاح", order: result[0] });
+      notes,
+      status: "pending",
+      created_at: new Date().toISOString()
+    };
+    
+    mockOrders.push(order);
+    res.json({ message: "تم إنشاء الطلب بنجاح", order });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-// جلب كل الطلبات
 router.get("/", async (_req, res) => {
   try {
-    const orders = await db.select().from("orders");
-    res.json(orders);
+    res.json(mockOrders);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-// تحديث حالة الطلب
 router.patch("/:id/status", async (req, res) => {
   const { id } = req.params;
   const { status } = req.body;
 
   try {
-    const updated = await db.update("orders")
-      .set({ status })
-      .where("id", "=", id)
-      .returning("*");
-
-    res.json({ message: "تم تحديث حالة الطلب", order: updated[0] });
+    const order = mockOrders.find(o => o.id === parseInt(id));
+    if (!order) {
+      return res.status(404).json({ error: "الطلب غير موجود" });
+    }
+    
+    order.status = status;
+    res.json({ message: "تم تحديث حالة الطلب", order });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

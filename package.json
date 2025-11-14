@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "node backend/server.js"
+    "start": "node start.js",
+    "backend": "node backend/server.js",
+    "frontend": "node frontend-server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
